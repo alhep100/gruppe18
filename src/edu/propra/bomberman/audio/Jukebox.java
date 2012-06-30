@@ -90,15 +90,27 @@ public class Jukebox {
 		jukebox.playSequence(music2); // start playing Sequence
 */		
 		
-		jukebox.playSound(5);
-		jukebox.playSound(5);
-		jukebox.playSound(5);
-		jukebox.playSound(5);
-		jukebox.playSound(5);
+		jukebox.playSound(4);
+		jukebox.refresh(600);
+		jukebox.playSound(3);
+	
 try {
 		
 			
 			Thread.sleep(1000); // wait a bit
+			
+		} catch (InterruptedException ex) {
+		}
+
+	}
+
+
+	public void refresh(int i) {
+		// TODO Auto-generated method stub
+try {
+		
+			
+			Thread.sleep(i); // wait a bit
 			
 		} catch (InterruptedException ex) {
 		}
