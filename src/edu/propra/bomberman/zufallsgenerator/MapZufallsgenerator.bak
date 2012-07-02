@@ -1,15 +1,9 @@
-package edu.propra.bomberman.zufallsgenerator;
+package zufallsgenerator;
 
 import edu.propra.bomberman.gameengine.objects.GameObjectGroup;
 
 /*
  * Autor Jens Herrmann
- * 
- * Bugfix by Alex Hepting 02.07.2012 for-Schleife 71 Zeile
- * Bugfix Zeile 114 Objektumbennenung
- * Bugfix Pakagename
- * 
- * 
  */
 
 public class MapZufallsgenerator {
@@ -36,8 +30,8 @@ public class MapZufallsgenerator {
 	int[]		AltObjekt	= { iceMauer, statMauer };
 	int			i, x, y, z;
 
-	// Getter und Setter für die boole'schen Variablen. Werden gelöscht, wenn
-	// nicht benötigt
+	// Getter und Setter fÃ¼r die boole'schen Variablen. Werden gelÃ¶scht, wenn
+	// nicht benÃ¶tigt
 	public boolean isStart1bel() {
 		return Start1bel;
 	}
@@ -63,18 +57,18 @@ public class MapZufallsgenerator {
 	}
 
 	/*
-	 * Die beiden obigen Werte sollen über Spielereingabe entgegengenommen
-	 * werden, um eine mögliche Unspielbarkeit vorzubeugen oder eine
+	 * Die beiden obigen Werte sollen Ã¼ber Spielereingabe entgegengenommen
+	 * werden, um eine mÃ¶gliche Unspielbarkeit vorzubeugen oder eine
 	 * Beeinflussung des Schwierigkeitsgrades bereitzuhalten
 	 */
 	// _______________________________________________________________________________________
 
 	public void RandomMap() {
-		// Warum for nicht klappt, weiß ich nicht
-		for (int n = 0; n <= 80; n++) {
+		// Warum for nicht klappt, weiÃŸ ich nicht
+		for (n = 0, n <= 80, n++) {
 			
 			/*
-			 * Zufällige Werte für die in den drei Arrays gespeicherten Variablen. x, y sind Werte für die
+			 * ZufÃ¤llige Werte fÃ¼r die in den drei Arrays gespeicherten Variablen. x, y sind Werte fÃ¼r die
 			 * Koordinaten auf dem Spielfeld  	
 			 */
 			i = (int) (Math.random()*3.0*1.0);
@@ -82,7 +76,7 @@ public class MapZufallsgenerator {
 			y = (int) (Math.random()*80.0*1.0);
 			z = (int) (Math.random()*2.0*1.0);			
 				/*
-				 * Die Abfrage prüft, ob Start1, Start2, Ende schon belegt sind,
+				 * Die Abfrage prÃ¼ft, ob Start1, Start2, Ende schon belegt sind,
 				 * um Mehrfachbelegung zu vermeiden
 				 */
 				if (ObjBel[i] == false) {
@@ -113,7 +107,7 @@ public class MapZufallsgenerator {
 						 */
 						else {
 							int obj = AltObjekt[z];
-							GameObjectGroup obj2 = new GameObjectGroup(x, y);
+							GameObjectGroup obj = new GameObjectGroup(x, y);
 						}	
 				}
 			}
