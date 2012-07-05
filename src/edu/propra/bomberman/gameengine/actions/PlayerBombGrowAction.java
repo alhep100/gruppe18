@@ -1,19 +1,21 @@
 package edu.propra.bomberman.gameengine.actions;
 
 import edu.propra.bomberman.gameengine.SGameEngine;
+import edu.propra.bomberman.gameengine.objects.GameObject;
 import edu.propra.bomberman.gameengine.objects.Player;
 
-public class PlayerWonAction extends ActionObject {
+public class PlayerBombGrowAction extends ActionObject {
 
-	public PlayerWonAction(Player actor) {
-		this.actor=actor;
+	private GameObject	item;
+	public PlayerBombGrowAction(Player actor,GameObject item) {
 		this.time=System.currentTimeMillis();
+		this.item=item;
+		this.actor=actor;
 	}
 	@Override
 	public void action() {
-		System.out.println(((Player)actor).getName()+" has won the game");;
-		SGameEngine.get().endGame();
-
+		((Player)actor).bombGrowUp();
+		SGameEngine.get().removeObject(item);
 	}
 	@Override
 	public String getMessageData() {

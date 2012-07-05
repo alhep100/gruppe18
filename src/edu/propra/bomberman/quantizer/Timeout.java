@@ -5,6 +5,18 @@ public class Timeout {
 	/**
 	 * Author: Alex - Time by utilizing the threads with 2 different
 	 * modes
+	 * 
+	 * 
+	 * Die Methode timeout implementiert direkt die Anzahl der Ticks
+	 * und das Zeitformat in einem Schritt als beide parameter
+	 * 
+	 * Die Mainmethode hat 2 Eintraege, die nacheinander abgearbeitet werden
+	 * also nur serielle Events von der Klasse behandelt werden können. 
+	 * Es ist dazu gedacht in logischen Programmschritten verwendet zu verwenden
+	 * .
+	 * 
+	 * Desswegen ist die Methode eher für seriellle Events in den Actions angesetzt.
+	 * 
 	 */
 	// This class file is for standard testing
 	public static void main(String[] args) {

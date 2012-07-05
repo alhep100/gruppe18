@@ -13,16 +13,17 @@ import main.Bomberman;
 
 import edu.propra.bomberman.collisionengine.CollisionObject;
 import edu.propra.bomberman.gameengine.SGameEngine;
+import edu.propra.bomberman.gameengine.actions.PlayerBombGrowAction;
 import edu.propra.bomberman.gameengine.actions.PlayerBombUpAction;
 import edu.propra.bomberman.graphicengine.SGImage;
 import edu.propra.bomberman.graphicengine.SGTransform;
 
-public class BombUpItem extends GameObject {
+public class BombGrowItem extends GameObject {
 	public static Area			collisionArea	= null;
 	public static Area			clipArea		= null;
 	public static BufferedImage	image			= null;
 
-	public BombUpItem(int x, int y,String oid) {
+	public BombGrowItem(int x, int y,String oid) {
 		this.setOid(oid);
 
 		AffineTransform trans = new AffineTransform();
@@ -45,7 +46,7 @@ public class BombUpItem extends GameObject {
 	@Override
 	public void collisionWith(Object a) {
 		if(a instanceof Player){
-			SGameEngine.get().addAction(new PlayerBombUpAction((Player)a,this));
+			SGameEngine.get().addAction(new PlayerBombGrowAction((Player)a,this));
 		}
 	}
 
@@ -65,7 +66,7 @@ public class BombUpItem extends GameObject {
 		collisionArea = new Area(new Rectangle(0, 0, 40, 40));
 		clipArea = new Area(new Rectangle(0, 0, 40, 40));
 		try {
-			image = ImageIO.read(Bomberman.class.getClassLoader().getResource("resources/item.png").openStream());
+			image = ImageIO.read(Bomberman.class.getClassLoader().getResource("resources/handschuh.png").openStream());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
