@@ -5,6 +5,8 @@ package edu.propra.bomberman.ui;
 
 import java.awt.event.ActionEvent;
 
+
+
 import javax.swing.AbstractAction;
 
 import edu.propra.bomberman.audio.Jukebox;
@@ -14,6 +16,7 @@ import main.Bomberman;
 
 /**
  * @author Nadescha
+ * Action to start a game
  * 
  */
 public class ActionStarten extends AbstractAction {
