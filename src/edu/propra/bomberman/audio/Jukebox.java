@@ -45,24 +45,10 @@ public class Jukebox {
 	public static final int Death = 5;
 	private AudioClip[] sounds; // AudioClips
 
+	Sequencer sequencer;
+
 	public Jukebox() {
 		initSounds();
-	}
-
-	public Sequence loadSequence(String filename) {
-		/*
-		 * laedt die Sequenz durch url
-		 */
-		Sequence result = null;
-		try {
-			ClassLoader loader = Jukebox.class.getClassLoader();
-			URL url = loader.getResource(filename);
-			result = MidiSystem.getSequence(url);
-			return result;
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return null;
 	}
 
 	private void initSounds() {
@@ -81,24 +67,10 @@ public class Jukebox {
 					.getResource("resources/roll.wav"));
 			sounds[Jukebox.Explosion] = Applet.newAudioClip(loader
 					.getResource("resources/explosion.wav"));
-			sounds[Jukebox.Soundup] = Applet.newAudioClip(loader
-					.getResource("resources/sound_up.wav"));
-			sounds[Jukebox.Sounddown] = Applet.newAudioClip(loader
-					.getResource("resources/sound_down.wav"));
-			sounds[Jukebox.Death] = Applet.newAudioClip(loader
-					.getResource("resources/death.wav"));
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-	}
-
-	public void playSound(int index) {
-		/*
-		 * playSound Spielt den SOUND ab
-		 */
-		if (index > 0 && index < sounds.length)
-			sounds[index].play();
 	}
 
 	public static void main(String[] args) {
@@ -161,19 +133,27 @@ public class Jukebox {
 		}
 	}
 
-	Sequencer sequencer;
+	public Sequence loadSequence(String filename) {
+		Sequence result = null;
+		try {
+			ClassLoader loader = Jukebox.class.getClassLoader();
+			URL url = loader.getResource(filename);
+			result = MidiSystem.getSequence(url);
+			return result;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return null;
+	}
 
 	private void playSequence(Sequence seq) {
-
-		/*
-		 * playSequence spielt die Midi ab
-		 */
 		// TODO Auto-generated method stub
 		if (seq == null)
 			return;
 		try {
 
 			// Create a sequencer for the sequence
+
 			sequencer = MidiSystem.getSequencer();
 			sequencer.open();
 			sequencer.setSequence(seq);
@@ -186,11 +166,14 @@ public class Jukebox {
 		}
 	}
 
+	public void playSound(int index) {
+		if (index > 0 && index < sounds.length)
+			sounds[index].play();
+	}
+
 	private void stopSequence() {
-		/*
-		 * stop Sequence Beendet die Sequenz
-		 */
 		if (sequencer.isRunning())
 			sequencer.stop();
+
 	}
 }
